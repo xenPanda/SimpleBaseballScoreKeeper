@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chrisbarilla.simplebaseballscorekeeper.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INNING"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonIncrementHome"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDecrementHome"
+        app:layout_constraintEnd_toStartOf="@+id/homeScore"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeTeam"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonDecrementHome"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="@+id/homeScore"
+        app:layout_constraintEnd_toStartOf="@+id/homeScore"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonIncrementVisitor"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/visitorScore"
+        app:layout_constraintTop_toBottomOf="@+id/visitorTeam" />
+
+    <Button
+        android:id="@+id/buttonDecrementVisitor"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="@+id/visitorScore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/visitorScore"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIncrementVisitor" />
+
+    <TextView
+        android:id="@+id/homeScore"
+        android:layout_width="100dp"
+        android:layout_height="117dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="0"
+        android:textSize="75sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/visitorScore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeTeam"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/visitorScore"
+        android:layout_width="100dp"
+        android:layout_height="117dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="0"
+        android:textSize="75sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/homeScore"
+        app:layout_constraintTop_toBottomOf="@+id/visitorTeam"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/homeTeam"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Home"
+        app:layout_constraintEnd_toStartOf="@+id/visitorTeam"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inningNumber" />
+
+    <EditText
+        android:id="@+id/visitorTeam"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Visitor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inningNumber"
+        tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/inningNumber"
+        android:layout_width="100dp"
+        android:layout_height="117dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="0"
+        android:textSize="75sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDecrementInning"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonIncrementInning"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.005" />
+
+    <Button
+        android:id="@+id/buttonIncrementInning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="80dp"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/homeTeam"
+        app:layout_constraintEnd_toStartOf="@+id/inningNumber"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="RtlCompat" />
+
+    <Button
+        android:id="@+id/buttonDecrementInning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:text="-"
+        app:layout_constraintBottom_toTopOf="@+id/visitorTeam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toEndOf="@+id/inningNumber"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="RtlCompat" />
+
+    <Button
+        android:id="@+id/buttonReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="RESET"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.982" />
+
+    <RadioButton
+        android:id="@+id/radioBall1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="103dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/radioBall2"
+        app:layout_constraintStart_toEndOf="@+id/textBalls"
+        app:layout_constraintTop_toBottomOf="@+id/homeScore" />
+
+    <RadioButton
+        android:id="@+id/radioBall2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/radioBall1"
+        app:layout_constraintEnd_toStartOf="@+id/radioBall3"
+        app:layout_constraintStart_toEndOf="@+id/radioBall1"
+        app:layout_constraintTop_toTopOf="@+id/radioBall1"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RadioButton
+        android:id="@+id/radioBall3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/radioBall1"
+        app:layout_constraintEnd_toStartOf="@+id/radioBall4"
+        app:layout_constraintStart_toEndOf="@+id/radioBall2"
+        app:layout_constraintTop_toTopOf="@+id/radioBall1"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RadioButton
+        android:id="@+id/radioBall4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="157dp"
+        app:layout_constraintBottom_toBottomOf="@+id/radioBall1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/radioBall3"
+        app:layout_constraintTop_toTopOf="@+id/radioBall1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textBalls"
+        android:layout_width="67dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Balls"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/radioBall1"
+        app:layout_constraintEnd_toStartOf="@+id/radioBall1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/radioBall1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textStrikes"
+        android:layout_width="98dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="55dp"
+        android:layout_marginEnd="250dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Strikes"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBalls"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RadioButton
+        android:id="@+id/radioStrike1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textStrikes"
+        app:layout_constraintTop_toBottomOf="@+id/radioBall2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RadioButton
+        android:id="@+id/radioStrike2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/radioStrike1"
+        app:layout_constraintEnd_toStartOf="@+id/radioStrike3"
+        app:layout_constraintStart_toEndOf="@+id/radioStrike1"
+        app:layout_constraintTop_toTopOf="@+id/radioStrike1"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RadioButton
+        android:id="@+id/radioStrike3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="154dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonReset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioStrike2"
+        app:layout_constraintTop_toBottomOf="@+id/radioBall4" />
+
+</android.support.constraint.ConstraintLayout>
