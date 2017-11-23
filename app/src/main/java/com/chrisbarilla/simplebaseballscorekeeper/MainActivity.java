@@ -6,10 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Create Variables to hold Field Data
     Button btnIncrementHome;
     Button btnDecrementHome;
     Button btnIncrementVisitor;
@@ -17,42 +19,49 @@ public class MainActivity extends AppCompatActivity {
     Button btnIncrementInning;
     Button btnDecrementInning;
     Button btnReset;
+    CheckBox ckbxoneOut;
+    CheckBox ckbxtwoOut;
+    CheckBox ckbxthreeOut;
+
 
     TextView txthomeScore;
     TextView txtvisitorScore;
     TextView txtinningNumber;
 
-    public static final String Game_Score_FileName = "gameScore";
+    //private SharedPreferences score;
+    private static final String Game_Score_FileName = "gameScore";
+    private String Home_Score = "txthomeScore";
+    private String Visitor_Score = "txtvisitorScore";
+    private String Inning_Number = "txtinningNumber";
+
+    SharedPreferences score;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        btnIncrementHome = (Button)findViewById(R.id.buttonIncrementHome);
-        btnDecrementHome = (Button)findViewById(R.id.buttonDecrementHome);
-        btnIncrementVisitor = (Button)findViewById(R.id.buttonIncrementVisitor);
-        btnDecrementVisitor = (Button)findViewById(R.id.buttonDecrementVisitor);
-        btnIncrementInning = (Button)findViewById(R.id.buttonIncrementInning);
-        btnDecrementInning = (Button)findViewById(R.id.buttonDecrementInning);
-        btnReset = (Button)findViewById(R.id.buttonReset);
+        //Set default value in SharedPreferences file
+        score = getSharedPreferences(Game_Score_FileName, Context.MODE_PRIVATE);
 
 
-        txthomeScore = (TextView)findViewById(R.id.homeScore);
-        txtvisitorScore = (TextView)findViewById(R.id.visitorScore);
-        txtinningNumber = (TextView)findViewById(R.id.inningNumber);
-
-
-        SharedPreferences score = getSharedPreferences(Game_Score_FileName, Context.MODE_PRIVATE);
-        String Home = score.getString("Home_Score","0");
-        String Visitor = score.getString("Visitor_Score","0");
-        String Inning = score.getString("Inning_Number","1");
-
-        txthomeScore.setText(Home);
-        txtvisitorScore.setText(Visitor);
-        txthomeScore.setText(Inning);
-
+        // Get Values of the Form Fields
+        btnIncrementHome = findViewById(R.id.buttonIncrementHome);
+        btnDecrementHome = findViewById(R.id.buttonDecrementHome);
+        btnIncrementVisitor = findViewById(R.id.buttonIncrementVisitor);
+        btnDecrementVisitor = findViewById(R.id.buttonDecrementVisitor);
+        btnIncrementInning = findViewById(R.id.buttonIncrementInning);
+        btnDecrementInning = findViewById(R.id.buttonDecrementInning);
+        btnReset = findViewById(R.id.buttonReset);
+        txthomeScore = findViewById(R.id.homeScore);
+        txtvisitorScore = findViewById(R.id.visitorScore);
+        txtinningNumber = findViewById(R.id.inningNumber);
+        ckbxoneOut = (CheckBox) findViewById(R.id.checkBox1Out);
+        ckbxtwoOut = (CheckBox) findViewById(R.id.checkBox2Out);
+        ckbxthreeOut = (CheckBox) findViewById(R.id.checkBox3Out);
 
 
         btnIncrementHome.setOnClickListener(new View.OnClickListener() {
@@ -127,23 +136,57 @@ public class MainActivity extends AppCompatActivity {
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 txthomeScore.setText(String.valueOf(0));
                 txtvisitorScore.setText(String.valueOf(0));
                 txtinningNumber.setText(String.valueOf(0));
+
+                ckbxoneOut.setChecked(false);
+                ckbxtwoOut.setChecked(false);
+                ckbxthreeOut.setChecked(false);
+
+
             }
         });
 
-        String homeScore = txthomeScore.getText().toString().trim();
-        String visitorScore = txtvisitorScore.getText().toString().trim();
-        String inningNumber = txtinningNumber.getText().toString().trim();
-
-        SharedPreferences.Editor editor = getSharedPreferences(Game_Score_FileName,MODE_PRIVATE).edit();
-        editor.putString("Home_Score",homeScore);
-        editor.putString("Visitor_Score",visitorScore);
-        editor.putString("Inning_Number",inningNumber);
-        editor.commit();
-
-
 
     }
+
+    @Override
+    protected void onPause(){
+      super.onPause();
+
+        String homeScore = txthomeScore.getText().toString();
+        String visitorScore = txtvisitorScore.getText().toString();
+        String inningNumber = txtinningNumber.getText().toString();
+
+        score = getSharedPreferences(Game_Score_FileName, MODE_PRIVATE);
+        SharedPreferences.Editor editor = score.edit();
+
+      editor.putString("Inning_Number",inningNumber);
+      editor.putString("Visitor_Score",visitorScore);
+      editor.putString("Home_Score",homeScore);
+      editor.apply();
+
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        score = getSharedPreferences(Game_Score_FileName, MODE_PRIVATE);
+
+        String Home = score.getString("Home_Score","0");
+        String Visitor = score.getString("Visitor_Score","0");
+        String Inning = score.getString("Inning_Number","1");
+
+        txthomeScore.setText(Home);
+        txtvisitorScore.setText(Visitor);
+        txtinningNumber.setText(Inning);
+
+    }
+
+
+
 }

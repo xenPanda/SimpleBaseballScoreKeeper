@@ -314,4 +314,48 @@
         app:layout_constraintStart_toEndOf="@+id/radioStrike2"
         app:layout_constraintTop_toBottomOf="@+id/radioBall4" />
 
+    <CheckBox
+        android:id="@+id/checkBox1Out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="37dp"
+        android:text="1 OUT"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox2Out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/radioBall4"
+        app:layout_constraintTop_toBottomOf="@+id/visitorScore" />
+
+    <CheckBox
+        android:id="@+id/checkBox2Out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="8dp"
+        android:text="2 OUT"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox3Out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/checkBox1Out"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox1Out" />
+
+    <CheckBox
+        android:id="@+id/checkBox3Out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="8dp"
+        android:text="3 OUT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/checkBox2Out"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2Out" />
+
+
 </android.support.constraint.ConstraintLayout>
